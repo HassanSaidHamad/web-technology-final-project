@@ -1,0 +1,340 @@
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+/* sidebar */
+
+.sidebar {
+    background-color: black;
+    height: 100vh;
+}
+
+.dropdown-toggle {
+    float: right;
+  }
+
+  .current {
+    background-color: #f44336;
+    border-radius: 7px;
+    box-shadow: 2px 5px 10px #111;
+    transition: all .3s;
+  }
+
+  .sidebar ul li .current:hover {
+    background-color: #f66436;
+    border-radius: 7px;
+    /* box-shadow: 2px 5px 20px #111; */
+    margin-left: 10px;
+  }
+
+  .sidebar ul li {
+      text-transform: capitalize;
+  }
+
+.sidebar .border-bottom a {
+    text-decoration: none;
+    font-size: 17px;
+    font-style: italic;
+}
+  .sidebar ul li a span {
+      padding-left: 0px;
+  }
+
+  .sidebar ul li a {
+    transition: all .3s;
+  }
+  .sidebar ul li a:hover {
+      border-radius: 7px;
+      background-color: gray;
+      margin-left: 20px;
+  }
+
+.sidebar ul li .drop-bg:hover {
+    margin-left: 0px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+/* end of sidebar */
+
+
+
+/* top navbar */
+.top-navbar {
+    background: #0f1216;
+}
+
+.icon-parent {
+    position: relative;
+}
+
+.icon-bullet::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 15px;
+    height: 12px;
+    width: 12px;
+    /* background-color: #f44336; */
+    border-radius: 50%;
+  }
+
+    /* tunazfny icon ztu zshuke chin */
+@media (max-width: 768px) {
+    .sidebar {
+      position: static;
+      height: auto;
+    }
+  
+    .top-navbar {
+      position: static;
+    }
+  }
+
+/* end of top navbaf */
+
+/* index */
+
+/* end of index */
+
+/* login form */
+.login-container {
+  background-color: #FFF;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  max-width: 100%;
+}
+
+.header-login {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 40px;
+}
+  /* .header-login h2 {
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+  } */
+
+.login-form  {
+  padding: 30px 20px;
+}
+
+.login-form .form-group {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.login-form .form-group label {
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.login-form .form-group input {
+  border: 2px solid #f0f0f0;
+  display: block;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+    /* success & error msg */
+    .login-form .form-group.success input {
+        border-color: #2ecc71;
+    }
+    .login-form .form-group.error input {
+        border-color: #e74c3c;
+    }
+    /* end of success & error msg */
+
+
+.login-form .form-group span {
+  visibility: hidden;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+}
+      /* success icon */
+      .login-form .form-group.success span .fa-check {
+        visibility: visible;
+        color: #2ecc71;
+  }
+  /* end of success icon */
+
+    /* success icon */
+    .login-form .form-group.error span .fa-circle-xmark {
+        visibility: visible;
+        color: #e74c3c;
+    }
+    /* end of success icon */
+
+    .login-form .form-group small {
+        visibility: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+    }
+      /* error mdg icon */
+      .login-form .form-group.error small {
+        visibility: visible;
+        color: #e74c3c;
+    }
+  /* end of error msg icon */
+
+  .login-form button {
+      background-color: #8e44ad;
+      border: 2px solid #8e44ad;
+      border-radius: 5px;
+      color: #FFF;
+      display: block;
+      font-size: 16px;
+      padding: 5px 10px;
+      width: 100%;
+      text-transform: capitalize;
+      transition: all 0.4s ease;
+  } 
+  .login-form .login-form button:hover {
+      margin-left: 10px;
+    }
+
+  .login-form .btn-signup-login {
+    background-color: #8e44ad;
+    border: 2px solid #8e44ad;
+    transition: all 0.4s ease;
+  }
+    .login-form .btn-signup-login:hover {
+        margin-left: 10px;
+        /* transform: translateY(-4px); */
+    }
+
+  .login-form .form-group a {
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+
+  .show_eye_icon {
+    position: absolute;
+    right: 15px;
+    top: 45px;
+    font-size: 20px;
+  }
+
+/* end of login form */
+
+
+
+/* student login form */
+
+.stu_signup-form {
+    margin-top: 30px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.stu_signup-form .header-stu-signup {
+  background-color: #f7f7f7;
+}
+
+.stu_signup-form .form-group {
+  margin-bottom: 30px;
+  /* padding-bottom: 5px; */
+}
+
+.stu_signup-form .form-group input {
+  border: 2px solid #f0f0f0;
+}
+
+    /* success & error msg */
+    .stu_signup-form .form-group.success input {
+      border-color: #2ecc71;
+  }
+  .stu_signup-form .form-group.error input {
+      border-color: #e74c3c;
+  }
+  /* end of success & error msg */
+
+  .stu_signup-form .form-group span {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+    /* success icon */
+    .stu_signup-form .form-group.success span .fa-check {
+      visibility: visible;
+      color: #2ecc71;
+    }
+
+    /* error icon */
+    .stu_signup-form .form-group.error span .fa-circle-xmark {
+      visibility: visible;
+      color: #e74c3c;
+    }
+
+.stu_signup-form .form-group small {
+  visibility: hidden;
+  position: absolute;
+  left: 25px;
+}
+
+/* set text error msg  */
+.stu_signup-form .form-group.error small {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+
+.stu_signup-form .btn-stu-signup {
+    transition: all 0.5s ease;
+}
+
+.stu_signup-form .btn-stu-signup:hover {
+    transform: translateY(-3px);
+}
+
+/* end of student login form */
+
+/* small device */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+
+  .top-navbar {
+    position: static;
+  }
+
+  .for_sm_device_form {
+    margin-bottom: 50px;
+  }
+
+  .card_col_for_sm_device {
+    width: 90%;
+    margin: auto auto;
+  }
+
+  .para_for_sm_device {
+    margin-top: 30px;
+  }
+
+  .footer_head_for_sm_device {
+    margin: auto 30px;
+  }
+
+  .footer_cont_for_sm_device {
+    width: 95%;
+  }
+
+  .top_navbar_for_sm_device {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+
+
+}

@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit View Personal Info</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* * {
+            box-sizing: border-box;
+        }
+       body {
+           background-color: #e8eaf6;
+       }
+
+       form {
+           background-color: #fff;
+           padding: 30px;
+           border-radius: 8px;
+       }
+
+       form .customer_btn_submit {
+           background: linear-gradient(to left, #673ab7, #03a9f4);
+           border-radius: 20px;
+           color: #fff;
+       } */
+    </style>
+</head>
+    <body>
+
+    <nav class="navbar navbar-expand-md navbar-light">
+        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#responsiveNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="responsiveNavbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- sidebar -->
+                    <div class="col-xl-2 col-lg-3 col-md-4 fixed-top sidebar">
+                        <a href="" class="navbar-brand text-light text-uppercase d-block mx-auto text-center py-2 mb-3 border-bottom">
+                            <span sec:authentication="principal.authorities">Roles</span>
+                        </a>
+                        <div class="border-bottom pb-3">
+                            <a href=""><img src="../img/admin1.jpg" class="rounded-circle mr-3" width="50" height="50" alt=""></a>
+                            <a sec:authentication="name"  class="text-light text-capitalize">username</a>
+                            <!--                                    <a  class="text-light text-capitalize">username</a>-->
+                        </div>
+                        <ul class="navbar-nav flex-column mt-3">
+                            <li class="nav-item">
+                                <a th:href="@{/open_my_dashboard}" class="nav-link text-light p-3 mb-2 current">
+                                    <i class="fas fa-qrcode text-light fa-lg mr-3"></i>
+                                    <span>dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/open_my_dashboard}" class="nav-link text-light p-3 mb-2">
+                                    <i class="fas fa-chart-line text-light fa-lg mr-3"></i>
+                                    <span>overview</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="" class="nav-link text-light p-3 mb-2 sidebar-link" data-toggle="dropdown">
+                                    <div class="dropdown-toggle"></div>
+
+                                    <i class="fas fa-qrcode text-light fa-lg mr-3"></i>
+                                    <span>fuculty</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a th:href="@{/open_product_form}" class="dropdown-item drop-bg">Add Product</a>
+                                    <!--                                            <a th:href="@{/open_customer_order_form}" class="dropdown-item drop-bg">Make an Order</a>-->
+                                    <a sec:authorize="hasAnyAuthority('ADMIN', 'STAFF')" th:href="@{/open_view_product_table_form}" class="dropdown-item drop-bg">Manage Products</a>
+                                </div>
+                            </li>
+                            <li sec:authorize="hasAnyAuthority('ADMIN', 'STAFF')" class="nav-item dropdown" >
+                                <a href="" class="nav-link text-light p-3 mb-2 sidebar-link" data-toggle="dropdown">
+                                    <div class="dropdown-toggle"></div>
+
+                                    <i class="fas fa-registered text-light fa-lg mr-3"></i>
+                                    <span>register</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a th:href="@{/open_user_reg_form}" class="dropdown-item drop-bg">Customer</a>
+                                    <a th:href="@{/open_user_reg_form}" class="dropdown-item drop-bg">Supplier</a>
+                                    <a th:href="@{/open_user_reg_form}" class="dropdown-item drop-bg">Staff</a>
+                                </div>
+                            </li>
+                            <li sec:authorize="hasAnyAuthority('ADMIN', 'STAFF')" class="nav-item dropdown">
+                                <a href="" class="nav-link text-light p-3 mb-2 sidebar-link" data-toggle="dropdown">
+                                    <div class="dropdown-toggle"></div>
+
+                                    <i class="fas fa-eye text-light fa-lg mr-3"></i>
+                                    <span>view</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a th:href="@{/open_view_user_table_form}" class="dropdown-item drop-bg">Customer Details</a>
+                                    <a th:href="@{/open_view_user_table_form}" class="dropdown-item drop-bg">Supplier Details</a>
+                                    <a th:href="@{/open_view_user_table_form}" class="dropdown-item drop-bg">Staff Details</a>
+                                </div>
+                            </li>
+                            <li sec:authorize="hasAnyAuthority('ADMIN', 'STAFF')" class="nav-item dropdown">
+                                <a href="" class="nav-link text-light p-3 mb-2 sidebar-link" data-toggle="dropdown">
+                                    <div class="dropdown-toggle"></div>
+
+                                    <i class="fas fa-file-export text-light fa-lg mr-3"></i>
+                                    <span>g. report</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="" class="dropdown-item drop-bg">For Customer</a>
+                                    <a href="" class="dropdown-item drop-bg">For Supplier</a>
+                                    <a href="" class="dropdown-item drop-bg">For Staff</a>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- end of sidebar -->
+
+                    <!-- topbar -->
+                    <div class="col-xl-10 col-lg-9 col-md-8 ml-auto  fixed-top top-navbar top_navbar_for_sm_device">
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <h4 class="text-light mb-0">Dashboard</h4>
+                            </div>
+                            <div class="col-md-5">
+                                <h4 class="text-light text-uppercase mb-0"> inventory management system</h4>
+                            </div>
+                            <div class="col-md-4">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item icon-parent ml-auto">
+                                        <a class="nav-link pt-3 icon-bullet" href="#">
+                                            <i class="fas fa-envelope fa-lg text-light"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item icon-parent ml-auto">
+                                        <a class="nav-link pt-3 icon-bullet" href="#">
+                                            <i class="fas fa-bell fa-lg text-light"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ml-md-auto dropdown">
+                                        <a class="nav-link icon-bullet" data-toggle="dropdown" href="#">
+                                            <img class="rounded-circle mr-3" src="../img/admin2.jpg" width="40" height="40" alt="">
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right ml-auto">
+                                            <a th:href="@{/open_my_dashboard}" class="dropdown-item drop-bg" href="">
+                                                <i class="fas fa-home fa-sm text-muted mr-2"></i>
+                                                My Dashboard
+                                            </a>
+
+                                            <div class="dropdown-divider"></div>
+                                            <a th:href="@{/open_view_personal_account}" class="dropdown-item drop-bg" href="">
+                                                <i class="fas fa-user fa-sm text-muted mr-2"></i>
+                                                My Profile
+                                            </a>
+
+                                            <!-- mstary -->
+                                            <div class="dropdown-divider"></div>
+
+                                            <a class="dropdown-item drop-bg" href="">
+                                                <form th:action="@{/logout}" method="post">
+                                                    <i class="fas fa-sign-out-alt fa-sm text-muted mr-2"></i>
+                                                    <input type="submit" value="Logout" class="btn btn-danger btn-sm">
+                                                </form>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of topbar -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container mt-5">
+            <div class="row">
+                <div class="col-xl-10 col-lg-8 col-md-8 ml-auto">
+                    <div class="card mt-5">
+                        <div class="card-header">
+                            <h2 class="text-uppercase text-center">my account</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="" th:object="${userList}">
+                                <div class="row">
+                                    <div class="form-group col-4">
+                                        <p sec:authentication='principal.userId'></p>
+                                        <label>First Name</label>
+                                        <input type="text" th:field="*{email}" class="form-control" value="">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="" class="btn btn-primary btn-block">Okay</a>
+                                </div>
+                                <div class="col-6">
+                                    <a th:href="@{/}" class="btn btn-info btn-block">Edit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+        <script src="../js/my_forms_validation.js"></script>
+        <script src="../js/sweetalert.js"></script>
+        <script src="../js/all.min.js"></script>
+        <script src="../js/jquery.slim.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+    </body>
+</html>
